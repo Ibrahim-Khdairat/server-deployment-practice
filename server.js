@@ -25,6 +25,15 @@ server.get('/bad', (req, res, next) => {
     next('error from bad end point');
 });
 
+server.get('/status', (req, res) => {
+    let statusOutput = {
+        "domain": "ibrahimkh-server-deploy-dev.herokuapp.com",
+        "status": "running",
+        "PORT ": 3000,
+    }
+    res.status(200).json(statusOutput)
+})
+
 
 
 server.use('*', notFoundHandler)
